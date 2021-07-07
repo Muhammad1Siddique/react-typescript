@@ -1,23 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+function Sum(a:number, b:number){
+  return a + b;
+}
+
+interface IProps {
+  value1: number;
+  value2: number;
+}
+
+function SubComponent(Props:IProps){
+  return <>{Props.value1 - Props.value2}</>
+}
+
 function App() {
+  const Value = Sum(33,45);
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+       <h4>Sum of two Value: {Value}</h4>
+       <h4>Sub of two Value: <SubComponent value1={95} value2={64}/></h4>
       </header>
     </div>
   );
