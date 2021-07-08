@@ -2,6 +2,7 @@ import React from 'react';
 import PropsApp from './Components/PropsApp';
 import NewEmp from './Components/NewEmp';
 import ToggleButton from './Components/ToggleButton';
+import UserForm from './Components/UserForm';
 import './App.css';
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
         <PropsApp/>
         <NewEmp/>
         <ToggleButton/>
+        <UserForm/>
       </header>
     </div>
   );
