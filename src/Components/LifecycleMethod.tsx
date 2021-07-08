@@ -6,11 +6,13 @@ export interface IProps{
 
 export interface IState{
     count: number;
+    hideComponent: boolean;
 }
 
 export class LifecycleMethod extends React.Component<IProps, IState>{
     state: IState = {
-        count: this.props.initialValue
+        count: this.props.initialValue,
+        hideComponent:false
     }
 
     componentDidMount(){
@@ -32,7 +34,7 @@ export class LifecycleMethod extends React.Component<IProps, IState>{
     }
 
     onClickButton = () =>{
-        this.setState({count:this.state.count + 1})  
+        this.setState({count:this.state.count + 1, hideComponent:true})  
     }
 
     render(){
@@ -41,7 +43,20 @@ export class LifecycleMethod extends React.Component<IProps, IState>{
             <div>
                 Count with Class Component: {this.state.count}<br/>
                 <button onClick={this.onClickButton}>Increment</button>
+                {!this.state.hideComponent && <HideLifecycle/>}
             </div>
+        )
+    }
+}
+
+export class HideLifecycle extends React.Component{
+    componentWillUnmount(){
+        console.log("componentWillUnmount called");
+    }
+
+    render(){    
+        return(
+            <div>Hide Component on Click</div>
         )
     }
 }
