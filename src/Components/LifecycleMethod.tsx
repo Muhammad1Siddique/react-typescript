@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState, useEffect} from "react"
 
 export interface IProps{
     initialValue: number;
@@ -59,4 +59,30 @@ export class HideLifecycle extends React.Component{
             <div>Hide Component on Click</div>
         )
     }
+}
+
+export function FunctionLCM(Props:IProps) {
+    const [count, setCount] = useState(Props.initialValue);
+    const incrementValue = () =>{
+        setCount(count+1);
+    }
+    
+    useEffect(()=>{
+        console.log("one time useEffect");
+        setCount(count + 1);
+    },[count])
+
+    useEffect(()=>{
+        console.log("useEffect called when count value change");
+        return ()=>{
+            console.log('useEffect clean up phase');
+        }
+    },[count]);
+
+    return(
+        <div>
+            count with function component: {count}<br/>
+            <button onClick={incrementValue}>Increment</button>
+        </div>
+    )
 }
