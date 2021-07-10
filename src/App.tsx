@@ -6,6 +6,8 @@ import React from 'react';
 // import { LifecycleMethod } from './Components/LifecycleMethod';
 // import { FunctionLCM } from './Components/LifecycleMethod';
 // import Greeting from './Components/Greeting';
+//import { ConditionalRender } from './Components/ConditionalRender';
+import { MultipleList } from './Components/MultipleList';
 import './App.css';
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
         <FunctionLCM initialValue={0}/> */}
         {/* <Greeting isLoggedIn={true}/> 
         <Greeting isLoggedIn={false}/> */}
+        {/* <ConditionalRender/> */}
+        <MultipleList/>
       </header>
     </div>
   );
